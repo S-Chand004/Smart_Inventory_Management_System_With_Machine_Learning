@@ -1,0 +1,13 @@
+<h2>Inventory</h2>
+
+<a href="/add-product">Add Product</a>
+<br><br>
+
+{% for p in items %}
+  <p>
+    <b>{{ p[1] }}</b> ({{ p[2] }})  
+    <br>Quantity: {{ p[3] }}  
+    <br>Threshold: {{ p[4] }}
+    <hr>
+  </p>
+{% endfor %}
