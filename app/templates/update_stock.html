@@ -1,0 +1,15 @@
+<h2>Update Stock for {{ product[0] }}</h2>
+
+<form method="post">
+  <label>Update Type:</label>
+  <select name="type">
+    <option value="increase">Increase Stock</option>
+    <option value="decrease">Decrease Stock</option>
+  </select>
+  <br><br>
+
+  <input name="amount" type="number" placeholder="Amount" required>
+  <br><br>
+
+  <button type="submit">Update</button>
+</form>
