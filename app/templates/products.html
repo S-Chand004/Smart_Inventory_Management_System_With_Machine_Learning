@@ -5,7 +5,9 @@
 
 {% for p in items %}
   <p>
-    <b>{{ p[1] }}</b> ({{ p[2] }})  
+    <b>{{ p[1] }}</b> —
+<a href="/update-stock/{{ p[0] }}">Update Stock</a>
+ ({{ p[2] }})  
     <br>Quantity: {{ p[3] }}  
     <br>Threshold: {{ p[4] }}
     <hr>
