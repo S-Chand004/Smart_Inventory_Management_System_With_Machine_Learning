@@ -29,3 +29,41 @@ def add_product():
 
         return redirect(url_for('inventory.products'))
     return render_template('add_product.html')
+
+@inventory_bp.route('/update-stock/<int:product_id>', methods = ['GET', 'POST'])
+def update_stock(product_id):
+    cur = mysql.connection.cursor()
+
+    cur.execute("SELECT name, quantity FROM products WHERE id = %s", (product_id,))
+
+    product = cur.fetchone()
+
+    if not product:
+        cur.close()
+        return 'Product not found.'
+
+    if request.method == 'POST':
+        change_type = request.form['type']
+        amount = int(request.form['amount'])
+
+        net_quantity = product[1]
+
+        if change_type == 'increase':
+            net_quantity += amount
+        else:
+            net_quantity -= amount
+            if net_quantity < 0:
+                net_quantity = 0
+        
+        cur.execute("UPDATE products SET quantity=%s WHERE id = %s", (net_quantity, product_id))
+
+        cur.execute("INSERT INTO stock_history (product_id, change_type, change_amount, resulting_quantity) VALUES (%s, %s, %s, %s)", (product_id, change_type, amount, net_quantity))
+
+        mysql.connection.commit()
+        cur.close()
+        
+        return redirect(url_for('inventory.products'))
+    
+    cur.close()
+
+    return render_template('update_stock.html', product=product, product_id = product_id)
