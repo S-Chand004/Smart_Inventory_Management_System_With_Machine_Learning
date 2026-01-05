@@ -71,7 +71,7 @@ venv\Scripts\activate   # Windows
 ### 3️⃣ Install Dependencies
 
 ```bash
-pip install flask mysql-connector-python pandas scikit-learn
+pip install -r requirements.txt
 ```
 
 ---
@@ -206,4 +206,5 @@ Example Output:
 * Low-stock alerts (email / notifications)
 * Product name management UI
 * Advanced ML models (moving averages, ARIMA)
+
 
