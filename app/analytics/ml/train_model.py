@@ -8,7 +8,7 @@ from sklearn.linear_model import LinearRegression
 DB_CONFIG = {
     "host": "localhost",
     "user": "root",
-    "password": "s@chand",
+    "password": "password",
     "database": "inventory_db",
 }
 
@@ -69,3 +69,4 @@ def train_model(product_id):
     print(f"Model trained and saved for product {product_id}")
 
     return model
+
