@@ -10,7 +10,7 @@ DEFAULT_THRESHOLD = 10
 conn = mysql.connector.connect(
     host = "localhost",
     user =  "root",
-    password = "s@chand",
+    password = "password",
     database = "inventory_db")
 cur = conn.cursor()
 
@@ -123,3 +123,4 @@ print("Kaggle data loaded successfully")
 
 cur.close()
 conn.close()
+
