@@ -6,7 +6,7 @@ import pandas as pd
 DB_CONFIG = {
     "host": "localhost",
     "user": "root",
-    "password": "s@chand",
+    "password": "password",
     "database": "inventory_db",
 }
 
@@ -73,3 +73,4 @@ def predict_stock_status(product_id):
         "days_remaining": int(days_remaining),
         "status": status,
     }
+
